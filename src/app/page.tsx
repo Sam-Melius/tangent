@@ -1,28 +1,62 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import Particles from "react-tsparticles";
+import { loadSlim } from "tsparticles-slim";
+import { useCallback } from "react";
+import type { Engine } from "tsparticles-engine";
 
 export default function Home() {
+  const particlesInit = useCallback(async (engine: Engine) => {
+    await loadSlim(engine);
+  }, []);
+
   return (
-    <main className="bg-[#1b1b4f] text-white font-serif">
+    <main className="relative text-white font-serif overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="w-full h-full bg-gradient-to-br from-[#1b1b4f] to-[#101033] animate-pulse opacity-50" />
+        <Particles
+          id="tsparticles"
+          init={particlesInit}
+          options={{
+            fullScreen: { enable: false },
+            background: { color: "transparent" },
+            particles: {
+              number: { value: 50 },
+              color: { value: "#c1a01e" },
+              shape: { type: "circle" },
+              opacity: { value: 0.5 },
+              size: { value: { min: 1, max: 3 } },
+              move: { enable: true, speed: 0.3, direction: "none", outMode: "bounce" },
+            },
+          }}
+          className="absolute inset-0 z-0"
+        />
+      </div>
+
       {/* Hero Section */}
-      <section className="h-screen flex flex-col items-center justify-center text-center px-6">
-        <h1 className="text-5xl md:text-7xl font-bold tracking-wide">Tangent Group</h1>
-        <p className="mt-4 text-lg text-[#c1a01e]">Driving innovation across industries</p>
+      <section className="relative h-screen flex flex-col items-center justify-center text-center px-6 z-10">
+        <h1 className="text-5xl md:text-7xl font-bold tracking-wide" data-aos="fade-up">Tangent Group</h1>
+        <p className="mt-4 text-lg text-[#c1a01e]" data-aos="fade-up" data-aos-delay="200">Driving innovation across industries</p>
       </section>
 
       {/* Nav Links */}
-      <nav className="sticky top-0 z-50 bg-[#1b1b4f] border-b border-[#c1a01e] text-sm flex justify-center gap-8 py-4">
+      <nav className="sticky top-0 z-50 bg-[#1b1b4f] border-b border-[#c1a01e] text-sm flex justify-center gap-8 py-4" data-aos="fade-down">
         <a href="#companies" className="hover:text-[#c1a01e]">Current Companies</a>
         <a href="#about" className="hover:text-[#c1a01e]">About Us</a>
         <a href="#team" className="hover:text-[#c1a01e]">Team</a>
       </nav>
 
       {/* Companies Section */}
-      <section id="companies" className="px-6 py-20 space-y-20">
-        <h2 className="text-4xl font-bold text-center mb-10">Current Companies</h2>
+      <section id="companies" className="relative px-6 py-20 space-y-20 z-10">
+        <h2 className="text-4xl font-bold text-center mb-10" data-aos="fade-up">Current Companies</h2>
 
-        <div className="flex flex-col md:flex-row items-center gap-8">
-          <Image src="/placeholder.jpg" alt="Verlexa" width={500} height={300} className="rounded" />
+        <div className="flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
+          <a href="https://verlexa.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <Image src="/color1-white_icon_dark_background.png" alt="Verlexa" width={1000} height={300} className="rounded cursor-pointer" />
+          </a>
           <div>
             <h3 className="text-3xl font-semibold">Verlexa</h3>
             <p className="mt-4 text-gray-300">
@@ -32,7 +66,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col-reverse md:flex-row items-center gap-8">
+        <div className="flex flex-col-reverse md:flex-row items-center gap-8" data-aos="fade-left">
           <div>
             <h3 className="text-3xl font-semibold">Reverie Tech Solutions</h3>
             <p className="mt-4 text-gray-300">
@@ -40,11 +74,15 @@ export default function Home() {
             </p>
             <Link href="https://reverietech.com/" className="inline-block mt-4 text-[#c1a01e] underline">Visit Site</Link>
           </div>
-          <Image src="/placeholder.jpg" alt="Reverie" width={500} height={300} className="rounded" />
+          <a href="https://reverietech.com/" target="_blank" rel="noopener noreferrer">
+            <Image src="/ReverieThumbnail.png" alt="Reverie" width={1000} height={300} className="rounded cursor-pointer" />
+          </a>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center gap-8">
-          <Image src="/placeholder.jpg" alt="Clutch Bowling" width={500} height={300} className="rounded" />
+        <div className="flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
+          <a href="https://clutchbowling.com/" target="_blank" rel="noopener noreferrer">
+            <Image src="/ClutchThumbnail.png" alt="Clutch Bowling" width={1000} height={300} className="rounded cursor-pointer" />
+          </a>
           <div>
             <h3 className="text-3xl font-semibold">Clutch Bowling</h3>
             <p className="mt-4 text-gray-300">
@@ -56,7 +94,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="bg-[#161638] px-6 py-20 text-center">
+      <section id="about" className="relative bg-[#161638] px-6 py-20 text-center z-10" data-aos="fade-up">
         <h2 className="text-4xl font-bold mb-6">About Us</h2>
         <p className="max-w-3xl mx-auto text-gray-300">
           Tangent Group is a strategic holding company focused on cultivating cutting-edge technology ventures. Our portfolio companies operate independently but are united by a common thread: innovation, scalability, and impact.
@@ -64,20 +102,20 @@ export default function Home() {
       </section>
 
       {/* Team Section */}
-      <section id="team" className="px-6 py-20">
-        <h2 className="text-4xl font-bold text-center mb-10">Our Team</h2>
+      <section id="team" className="relative px-6 py-20 z-10">
+        <h2 className="text-4xl font-bold text-center mb-10" data-aos="fade-up">Our Team</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          <div className="bg-[#292965] p-6 rounded text-center">
+          <div className="bg-[#292965] p-6 rounded text-center" data-aos="zoom-in">
             <Image src="/placeholder.jpg" alt="Team Member" width={100} height={100} className="mx-auto rounded-full" />
             <h4 className="mt-4 font-semibold">Jane Doe</h4>
             <p className="text-sm text-gray-300">Managing Partner</p>
           </div>
-          <div className="bg-[#292965] p-6 rounded text-center">
+          <div className="bg-[#292965] p-6 rounded text-center" data-aos="zoom-in" data-aos-delay="100">
             <Image src="/placeholder.jpg" alt="Team Member" width={100} height={100} className="mx-auto rounded-full" />
             <h4 className="mt-4 font-semibold">John Smith</h4>
             <p className="text-sm text-gray-300">Head of Strategy</p>
           </div>
-          <div className="bg-[#292965] p-6 rounded text-center">
+          <div className="bg-[#292965] p-6 rounded text-center" data-aos="zoom-in" data-aos-delay="200">
             <Image src="/placeholder.jpg" alt="Team Member" width={100} height={100} className="mx-auto rounded-full" />
             <h4 className="mt-4 font-semibold">Alex Johnson</h4>
             <p className="text-sm text-gray-300">CTO</p>
@@ -86,7 +124,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#1b1b4f] text-gray-400 text-sm text-center py-6 border-t border-[#c1a01e]">
+      <footer className="relative bg-[#1b1b4f] text-gray-400 text-sm text-center py-6 border-t border-[#c1a01e] z-10">
         © {new Date().getFullYear()} Tangent Group. All rights reserved.
       </footer>
     </main>
