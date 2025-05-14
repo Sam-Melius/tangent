@@ -41,7 +41,7 @@ export default function Home() {
         />
       </div>
 
-      <main className="relative text-white font-serif overflow-hidden z-10">
+      <main className="relative text-white font-serif z-10">
         {/* Hero Section */}
         <section className="relative h-screen flex flex-col items-center justify-center text-center px-6 z-10">
           <h1 className="text-5xl md:text-7xl font-bold tracking-wide" data-aos="fade-up">Tangent Group</h1>
