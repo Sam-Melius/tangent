@@ -63,7 +63,7 @@ export default function Home() {
 
           <div className="flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
             <a href="https://verlexa.vercel.app/" target="_blank" rel="noopener noreferrer">
-              <Image src="/color1-white_icon_dark_background.png" alt="Verlexa" width={1000} height={300} className="rounded cursor-pointer" />
+              <Image src="/color1-white_icon_dark_background.png" alt="Verlexa" width={3000} height={300} className="rounded cursor-pointer" />
             </a>
             <div>
               <h3 className="text-3xl font-semibold">Verlexa</h3>
@@ -83,13 +83,13 @@ export default function Home() {
               <Link href="https://reverietech.com/" className="inline-block mt-4 text-[#c1a01e] underline">Visit Site</Link>
             </div>
             <a href="https://reverietech.com/" target="_blank" rel="noopener noreferrer">
-              <Image src="/ReverieThumbnail.png" alt="Reverie" width={1000} height={300} className="rounded cursor-pointer" />
+              <Image src="/ReverieThumbnail.png" alt="Reverie" width={3000} height={300} className="rounded cursor-pointer" />
             </a>
           </div>
 
           <div className="flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
             <a href="https://clutchbowling.com/" target="_blank" rel="noopener noreferrer">
-              <Image src="/ClutchThumbnail.png" alt="Clutch Bowling" width={1000} height={300} className="rounded cursor-pointer" />
+              <Image src="/ClutchThumbnail.png" alt="Clutch Bowling" width={3000} height={300} className="rounded cursor-pointer" />
             </a>
             <div>
               <h3 className="text-3xl font-semibold">Clutch Bowling</h3>
