@@ -190,7 +190,7 @@ export default function Home() {
                   Lychelle Loveland Day <span className="text-sm font-normal text-[#c1a01e]">— CFO</span>
                 </h3>
                 <p className="mt-2 text-gray-300">
-                  Lychelle is a key leader in Tangent’s growth strategy and operations. Her background and insights drive strategic decisions across multiple ventures. A more detailed biography will be added soon.
+                  Lychelle is a key leader in Tangent’s growth strategy and operations. Her background and insights drive strategic decisions across multiple ventures.
                 </p>
                 <a
                   href="http://linkedin.com/in/lychelle-loveland-day-5a0941256"
