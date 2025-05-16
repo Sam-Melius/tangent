@@ -154,7 +154,7 @@ export default function Home() {
               <Image
                 src="/AndrewZ.jpeg"
                 alt="Andrew Zwicker"
-                width={100}
+                width={150}
                 height={150}
                 className="rounded-full object-cover"
               />
