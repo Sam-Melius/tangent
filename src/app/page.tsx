@@ -67,7 +67,7 @@ export default function Home() {
 
   <div className="flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
     <a href="https://verlexa.vercel.app/" target="_blank" rel="noopener noreferrer">
-      <Image src="/color1-white_icon_dark_background.png" alt="Verlexa" width={1000} height={300} className="rounded cursor-pointer" />
+      <Image src="/VerlexaThumbnail.png" alt="Verlexa" width={1750} height={300} className="rounded cursor-pointer" />
     </a>
     <div>
       <h3 className="text-3xl font-semibold">Verlexa</h3>
