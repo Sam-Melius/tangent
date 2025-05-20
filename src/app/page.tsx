@@ -2,214 +2,183 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import Particles from "react-tsparticles";
-import { loadSlim } from "tsparticles-slim";
-import { useCallback } from "react";
-import type { Engine } from "tsparticles-engine";
 
 export default function Home() {
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadSlim(engine);
-  }, []);
-
   return (
-    <>
-      {/* Global animated background and particles */}
-      <div className="fixed inset-0 -z-10">
-        <div className="w-full h-full bg-black animate-pulse opacity-50" />
-        <Particles
-          id="tsparticles"
-          init={particlesInit}
-          options={{
-            fullScreen: { enable: false },
-            background: { color: "transparent" },
-            particles: {
-              number: { value: 75 },
-              color: { value: "#c1a01e" },
-              shape: { type: "circle" },
-              opacity: { value: 0.5 },
-              size: { value: { min: 1, max: 3 } },
-              move: {
-                enable: true,
-                speed: 0.3,
-                direction: "none",
-                outMode: "bounce",
-              },
-            },
-          }}
-          className="absolute inset-0"
-        />
-      </div>
+    <main className="bg-white text-[#111827] font-sans">
+      {/* Nav */}
+      <nav className="sticky top-0 z-50 bg-white border-b border-gray-300 shadow-sm">
+        <div className="max-w-6xl mx-auto px-6 py-3 flex justify-end items-center">
+          <div className="space-x-8 text-sm font-semibold uppercase tracking-wider">
+            <a href="#companies" className="hover:text-[#d4af37] transition-colors">Our Companies</a>
+            <a href="#about" className="hover:text-[#d4af37] transition-colors">About Us</a>
+            <a href="#team" className="hover:text-[#d4af37] transition-colors">Team</a>
+          </div>
+        </div>
+      </nav>
 
-      <main className="relative text-white font-serif z-10">
-        {/* Hero Section */}
-        <section className="relative h-screen flex flex-col items-center justify-center text-center px-6 z-10">
+      {/* Hero */}
+      <section
+        className="relative h-screen flex flex-col items-center justify-center text-center px-6 z-10 bg-cover bg-center"
+        style={{ backgroundImage: "url('/TangentBackground.png')" }}
+        data-aos="fade-up"
+      >
+        <div className="absolute inset-0 bg-black opacity-30 z-0" />
+        <div className="relative z-10">
           <Image
             src="/fulllogo_transparent_nobuffer.png"
             alt="Tangent Group Logo"
             width={800}
             height={200}
-            className="mx-auto"
-            data-aos="fade-up"
+            className="mx-auto mb-4"
           />
-        </section>
+          <p className="text-lg tracking-wider text-[#d4af37] uppercase">
+            Strategic Technology Group
+          </p>
+        </div>
+      </section>
 
-        {/* Nav Links */}
-        <nav className="sticky top-0 z-50 bg-[#1b1b4f] border-b border-[#c1a01e] text-sm flex justify-center gap-8 py-4" data-aos="fade-down">
-          <a href="#companies" className="hover:text-[#c1a01e]">Our Companies</a>
-          <a href="#about" className="hover:text-[#c1a01e]">About Us</a>
-          <a href="#team" className="hover:text-[#c1a01e]">Team</a>
-        </nav>
 
-        {/* Companies Section */}
-<section id="companies" className="relative px-6 py-20 space-y-20 z-10 text-white">
-  <h2 className="text-4xl font-bold text-center mb-10" data-aos="fade-up">Current Companies</h2>
+      {/* Companies */}
+      <section id="companies" className="py-20 bg-[#f9fafb] text-[#111827]">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-12 uppercase tracking-wide text-center" data-aos="fade-up">Our Companies</h2>
 
-  <div className="flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
-    <a href="https://verlexa.vercel.app/" target="_blank" rel="noopener noreferrer">
-      <Image src="/VerlexaThumbnail.png" alt="Verlexa" width={1750} height={300} className="rounded cursor-pointer" />
-    </a>
-    <div>
-      <h3 className="text-3xl font-semibold">Verlexa</h3>
-      <p className="mt-4 text-gray-300">
-        Verlexa is an advanced document management solution that streamlines the processing of digital evidence by enabling legal professionals to efficiently categorize, label, and Bates stamp large file collections. The platform provides comprehensive review capabilities with database-like querying functionality, allowing attorneys to consolidate, export, and analyze critical case materials with precision and ease.
-      </p>
-      <Link href="https://verlexa.vercel.app/" className="inline-block mt-4 text-[#c1a01e] underline">Visit Site</Link>
-    </div>
-  </div>
-
-  <div className="flex flex-col-reverse md:flex-row items-center gap-8" data-aos="fade-left">
-    <div>
-      <h3 className="text-3xl font-semibold">Reverie Tech Solutions</h3>
-      <p className="mt-4 text-gray-300">
-        At Reverie Tech Solutions, we believe that technology should drive innovation, not hinder it. Our Innovate services provide advanced digital solutions that empower businesses to analyze data, streamline processes, and develop technology-driven strategies for long-term success.
-      </p>
-      <Link href="https://reverietech.com/" className="inline-block mt-4 text-[#c1a01e] underline">Visit Site</Link>
-    </div>
-    <a href="https://reverietech.com/" target="_blank" rel="noopener noreferrer">
-      <Image src="/ReverieThumbnail.png" alt="Reverie" width={1000} height={300} className="rounded cursor-pointer" />
-    </a>
-  </div>
-
-  <div className="flex flex-col md:flex-row items-center gap-8" data-aos="fade-right">
-    <a href="https://clutchbowling.com/" target="_blank" rel="noopener noreferrer">
-      <Image src="/ClutchThumbnail.png" alt="Clutch Bowling" width={1000} height={300} className="rounded cursor-pointer" />
-    </a>
-    <div>
-      <h3 className="text-3xl font-semibold">Clutch Bowling</h3>
-      <p className="mt-4 text-gray-300">
-        Clutch Bowling projects games and effects which interact with objects on the lane. With custom-configured systems, anamorphic rendering, and Specto tracking integration, we ensure immersive and accurate experiences.
-      </p>
-      <Link href="https://clutchbowling.com/" className="inline-block mt-4 text-[#c1a01e] underline">Visit Site</Link>
-    </div>
-  </div>
-</section>
-
-        {/* About Section */}
-        <section id="about" className="relative bg-black px-6 py-20 text-center z-10 text-white" data-aos="fade-up">
-          <h2 className="text-4xl font-bold mb-6">About Us</h2>
-          <div className="max-w-4xl mx-auto text-gray-300 space-y-12 text-left">
-            <p className="text-lg">
-              Tangent is a strategic technology group focused on launching and scaling innovative companies in legal tech, immersive entertainment, and data infrastructure. We combine deep industry knowledge with operational expertise to build and support brands that push the boundaries of their fields.
-            </p>
-          </div>
-        </section>
-
-        {/* Team Section */}
-        <section id="team" className="relative px-6 py-20 z-10 text-white">
-          <h2 className="text-4xl font-bold text-center mb-10" data-aos="fade-up">Our Team</h2>
-
-          <div className="space-y-20 max-w-5xl mx-auto">
-            {/* Aaron Day */}
-            <div className="flex flex-col md:flex-row items-start gap-6" data-aos="fade-up">
-              <Image
-                src="/AaronDay.jpeg"
-                alt="Aaron Day"
-                width={150}
-                height={150}
-                className="rounded-full object-cover"
-              />
-              <div>
-                <h3 className="text-2xl font-semibold">
-                  Aaron Day <span className="text-sm font-normal text-[#c1a01e]">— Managing Partner</span>
-                </h3>
-                <p className="mt-2 text-gray-300">
-                Aaron is a seasoned technology executive and strategic consultant with a deep expertise in IT infrastructure, cybersecurity, and digital transformation. With a career spanning over two decades, he has successfully led technology initiatives for companies of all sizes, from startups to large enterprises. His experience encompasses cloud computing, network security, business intelligence, and IT governance, making him a critical asset in aligning technology with organizational objectives.
-                As the former executive leader for operations and technology for multiple enterprises, Aaron has spearheaded complex projects, including cloud migrations, security overhauls, and enterprise-wide digital transformation strategies. His work has had a particular focus on highly regulated industries such as healthcare, finance, and government, ensuring compliance while optimizing efficiency. 
-                Aaron is also a thought leader in operational and technological endeavors. He has spoken at multiple keynote panels and industry events, where he shares insights on emerging trends, best practices, and innovative solutions for modern business challenges. His ability to bridge the gap between technical complexities and business strategy enables organizations to harness the full potential of their technology investments. With a strong background in managed services and enterprise solutions, Aaron is passionate about leveraging technology to drive efficiency, security, and business growth.
-                </p>
-                <a
-                  href="http://linkedin.com/in/aarday"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#c1a01e] underline mt-4 inline-block"
-                >
-                  LinkedIn Profile
-                </a>
-              </div>
+          {/* Verlexa */}
+          <div className="grid md:grid-cols-[1fr_1px_1fr] items-center gap-20 mb-16" data-aos="fade-up">
+            <div className="pl-4">
+              <a href="https://verlexa.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <Image src="/VerlexaThumbnail.png" alt="Verlexa" width={800} height={400} className="shadow-md" />
+              </a>
             </div>
-
-            {/* Andrew Zwicker */}
-            <div className="flex flex-col md:flex-row items-start gap-6" data-aos="fade-up" data-aos-delay="100">
-              <Image
-                src="/AndrewZ.jpeg"
-                alt="Andrew Zwicker"
-                width={150}
-                height={150}
-                className="rounded-full object-cover"
-              />
-              <div>
-                <h3 className="text-2xl font-semibold">
-                  Andrew Zwicker <span className="text-sm font-normal text-[#c1a01e]">— Managing Partner</span>
-                </h3>
-                <p className="mt-2 text-gray-300">
-                As a distinguished technology leader and infrastructure architect, Andrew Zwicker brings comprehensive expertise in enterprise-grade network security and high-availability system design to mission-critical environments. His track record as CTO of a tech-based equity fund and managing partner of an international bowling software company demonstrates his ability to architect and deploy secure, scalable solutions that operate across multiple countries and industries. Andrew&apos;s extensive work with globally recognized organizations like Fox Sports, BPAA, and the PBA Tour showcases his capacity to deliver robust, enterprise-level systems that maintain stringent security standards while ensuring continuous availability. His technical mastery encompasses advanced network security architecture, high-availability infrastructure design, database systems, blockchain development, inventory management, and specialized hardware integration, including LiDAR and infrared tracking systems. Andrew&apos;s proven expertise in rapid prototyping cutting-edge solutions, combined with his success in developing secure, scalable products across sixteen countries, positions him as an exceptional leader in designing and implementing enterprise infrastructure that provides businesses with both ironclad security and competitive advantage in their markets.
-                </p>
-                <a
-                  href="http://linkedin.com/in/andrew-zwicker-41748559"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#c1a01e] underline mt-4 inline-block"
-                >
-                  LinkedIn Profile
-                </a>
-              </div>
-            </div>
-
-            {/* Lychelle Loveland Day */}
-            <div className="flex flex-col md:flex-row items-start gap-6" data-aos="fade-up" data-aos-delay="200">
-              <Image
-                src="/LychelleL.jpeg"
-                alt="Lychelle Loveland Day"
-                width={150}
-                height={150}
-                className="rounded-full object-cover"
-              />
-              <div>
-                <h3 className="text-2xl font-semibold">
-                  Lychelle Loveland Day <span className="text-sm font-normal text-[#c1a01e]">— CFO</span>
-                </h3>
-                <p className="mt-2 text-gray-300">
-                  Lychelle is a key leader in Tangent’s growth strategy and operations. Her background and insights drive strategic decisions across multiple ventures.
-                </p>
-                <a
-                  href="http://linkedin.com/in/lychelle-loveland-day-5a0941256"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#c1a01e] underline mt-4 inline-block"
-                >
-                  LinkedIn Profile
-                </a>
-              </div>
+            <div className="hidden md:block h-full border-l-2 border-[#d4af37] opacity-50"></div>
+            <div className="pr-4">
+              <h3 className="text-2xl font-semibold mb-2">Verlexa</h3>
+              <p className="text-gray-700">
+                Verlexa is an advanced document management solution for legal professionals, offering streamlined
+                evidence processing, intelligent labeling, and robust case file export tools.
+              </p>
+              <Link href="https://verlexa.vercel.app/" className="text-[#d4af37] underline mt-3 inline-block">Visit Site</Link>
             </div>
           </div>
-        </section>
 
-        {/* Footer */}
-        <footer className="relative bg-[#1b1b4f] text-gray-400 text-sm text-center py-6 border-t border-[#c1a01e] z-10">
-          © {new Date().getFullYear()} Tangent Group. All rights reserved.
-        </footer>
-      </main>
-    </>
+          {/* Reverie */}
+          <div className="grid md:grid-cols-[1fr_1px_1fr] items-center gap-20 mb-16" data-aos="fade-up" data-aos-delay="100">
+            <div className="pr-4">
+              <h3 className="text-2xl font-semibold mb-2">Reverie Tech Solutions</h3>
+              <p className="text-gray-700">
+                Reverie delivers innovative IT and analytics consulting, enabling businesses to scale through digital transformation,
+                custom applications, and enterprise strategy development.
+              </p>
+              <Link href="https://reverietech.com/" className="text-[#d4af37] underline mt-3 inline-block">Visit Site</Link>
+            </div>
+            <div className="hidden md:block h-full border-l-2 border-[#d4af37] opacity-50"></div>
+            <div className="pl-4">
+              <a href="https://reverietech.com/" target="_blank" rel="noopener noreferrer">
+                <Image src="/ReverieThumbnail.png" alt="Reverie" width={800} height={400} className="shadow-md" />
+              </a>
+            </div>
+          </div>
+
+          {/* Clutch */}
+          <div className="grid md:grid-cols-[1fr_1px_1fr] items-center gap-20" data-aos="fade-up" data-aos-delay="200">
+            <div className="pl-4">
+              <a href="https://clutchbowling.com/" target="_blank" rel="noopener noreferrer">
+                <Image src="/ClutchThumbnail.png" alt="Clutch Bowling" width={800} height={400} className="shadow-md" />
+              </a>
+            </div>
+            <div className="hidden md:block h-full border-l-2 border-[#d4af37] opacity-50"></div>
+            <div className="pr-4">
+              <h3 className="text-2xl font-semibold mb-2">Clutch Bowling</h3>
+              <p className="text-gray-700">
+                Clutch Bowling merges interactive projection, physics tracking, and real-time graphics to transform bowling
+                lanes into immersive digital experiences.
+              </p>
+              <Link href="https://clutchbowling.com/" className="text-[#d4af37] underline mt-3 inline-block">Visit Site</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="w-full border-t border-gray-200" />
+
+      {/* About */}
+      <section id="about" className="py-20 bg-white text-[#111827]" data-aos="fade-up">
+        <div className="max-w-4xl mx-auto px-6 text-left">
+          <h2 className="text-3xl font-bold mb-6 uppercase tracking-wide">About Us</h2>
+          <p className="text-lg text-gray-700 leading-relaxed">
+            Tangent is a strategic technology group focused on launching and scaling innovative companies in legal tech,
+            immersive entertainment, and digital infrastructure. We combine deep industry knowledge with operational
+            expertise to build and support brands that push the boundaries of their fields.
+          </p>
+        </div>
+      </section>
+
+      <div className="w-full border-t border-gray-200" />
+
+      {/* Team */}
+      <section id="team" className="py-20 bg-[#f9fafb] text-[#111827]">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-16 uppercase tracking-wide" data-aos="fade-up">Our Team</h2>
+
+          <div className="space-y-24">
+            {[{
+              name: "Aaron Day",
+              title: "Managing Partner",
+              image: "/AaronDay.jpeg",
+              linkedin: "http://linkedin.com/in/aarday",
+              bio: `Aaron is a seasoned technology executive with deep expertise in IT infrastructure, cybersecurity, and
+              digital transformation. He has led initiatives across healthcare, finance, and government sectors.`
+            }, {
+              name: "Andrew Zwicker",
+              title: "Managing Partner",
+              image: "/AndrewZ.jpeg",
+              linkedin: "http://linkedin.com/in/andrew-zwicker-41748559",
+              bio: `Andrew is an enterprise infrastructure architect and CTO-level strategist with experience across
+              global broadcast, sports, and immersive entertainment systems.`
+            }, {
+              name: "Lychelle Loveland Day",
+              title: "CFO",
+              image: "/LychelleL.jpeg",
+              linkedin: "http://linkedin.com/in/lychelle-loveland-day-5a0941256",
+              bio: `Lychelle leads strategic operations and financial oversight across Tangent’s portfolio, guiding growth
+              and alignment across verticals.`
+            }].map((member, index) => (
+              <div
+                key={index}
+                className="grid md:grid-cols-[1fr_1px_200px] items-start gap-20"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                <div className="pr-4">
+                  <h3 className="text-2xl font-semibold">
+                    {member.name} <span className="text-sm font-normal text-[#d4af37]">— {member.title}</span>
+                  </h3>
+                  <p className="mt-2 text-gray-700">{member.bio}</p>
+                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#d4af37] underline mt-3 inline-block">LinkedIn</a>
+                </div>
+                <div className="hidden md:block h-full border-l-2 border-[#d4af37] opacity-50"></div>
+                <div className="pl-4">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    width={200}
+                    height={200}
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div className="w-full border-t border-gray-200" />
+
+      {/* Footer */}
+      <footer className="bg-[#0f172a] text-gray-300 text-sm text-center py-6 border-t border-[#d4af37]">
+        © {new Date().getFullYear()} Tangent Group. All rights reserved.
+      </footer>
+    </main>
   );
 }
