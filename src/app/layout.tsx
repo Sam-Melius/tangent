@@ -16,13 +16,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Tangent Group",
   description:
-    "Tangent Group is a strategic technology firm launching and scaling innovative ventures in legal tech, immersive entertainment, and digital infrastructure.",
+    "Tangent Group is a strategic technology firm organizing the chaos — launching and scaling innovative ventures in legal tech, immersive entertainment, and digital infrastructure.",
   keywords: [
     "Tangent Group",
     "technology firm",
+    "strategic innovation",
     "legal tech",
     "immersive entertainment",
     "infrastructure startups",
+    "enterprise technology",
     "Aaron Day",
     "Andrew Zwicker",
     "Lychelle Loveland Day",
@@ -31,14 +33,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Tangent Group",
     description:
-      "A strategic technology group focused on building and scaling forward-thinking ventures across legal tech, entertainment, and infrastructure.",
+      "Organizing the chaos — a strategic technology group scaling ventures across legal tech, immersive entertainment, and digital infrastructure.",
     type: "website",
     url: "https://www.tangentgroup.io",
     siteName: "Tangent Group",
     images: [
       {
-        url: "https://www.tangentgroup.io/og-image.jpg", // Replace with actual image if available
-        alt: "Tangent Group Logo",
+        url: "fulllogo.png", // Use the hero image or branded graphic (ideally 1200x630)
+        width: 1200,
+        height: 630,
+        alt: "Tangent Group Background Image",
       },
     ],
   },
@@ -46,8 +50,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tangent Group",
     description:
-      "Launching and scaling ventures across legal tech, entertainment, and infrastructure.",
-    images: ["https://www.tangentgroup.io/og-image.jpg"], // Replace with actual image
+      "Organizing the chaos — strategic technology across legal, entertainment, and infrastructure sectors.",
+    images: ["https://www.tangentgroup.io/TangentBackground.png"],
   },
 };
 
