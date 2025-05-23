@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "Tangent Group",
     images: [
       {
-        url: "fulllogo.png", // Use the hero image or branded graphic (ideally 1200x630)
+        url: "TangentThumbnail.png", // Use the hero image or branded graphic (ideally 1200x630)
         width: 1200,
         height: 630,
         alt: "Tangent Group Background Image",
